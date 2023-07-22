@@ -16,22 +16,50 @@ const fs = require('fs');
 
 //WRITE FILES - 3 argument yung kailangang ilagay. Path, NewContent, Callback Function. Dapat string yung 2nd argument palagi
 //Example_1: After ma-access yung files, pinalitan yung content
-fs.writeFile('./documents/3d.txt', 'Hello Ella', function () {
-    console.log('Rewritten Already');
-});
+// fs.writeFile('./documents/3d.txt', 'Hello Ella', function () {
+//     console.log('Rewritten Already');
+// });
 
-//Example_2: Mag create ng new file, and gumawa ng content
-fs.writeFile('./documents/new.txt', 'Hello World', () => {
-    console.log('Rewritten Already');
-});
+// //Example_2: Mag create ng new file, and gumawa ng content
+// fs.writeFile('./documents/new.txt', 'Hello World', () => {
+//     console.log('Rewritten Already');
+// });
 
 
 
 
 
 //CREATE/DELETE DIRECTORIES
-
-
+// Example_1: Add directory
+fs.mkdir('./assets', (err) => {
+    if(err){
+        console.log(err);
+    }
+    console.log('Folder Created');
+});
+//Example_2: Remove directory
+fs.rmdir('./assets', (err) => {
+    if(err){
+        console.log(err);
+    }
+    console.log('Folder Deleted');
+});
+//Example_3: Create directory if it dont exist but delete directory if it exist using if-else conditional statement
+if(!fs.existsSync('./assets')){
+    fs.mkdir('./assets', (err) => {
+       if(err){
+        console.log(err);
+       }
+       console.log('Folder Created');
+    });
+}else{
+    fs.rmdir('./assets', (err) => {
+        if(err){
+            console.log(err);
+        }
+        console.log('Folder Deleted');
+    });
+}
 
 
 //DELETE FILES
