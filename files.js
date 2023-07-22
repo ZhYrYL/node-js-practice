@@ -15,12 +15,12 @@ const fs = require('fs');
 
 
 //WRITE FILES - 3 argument yung kailangang ilagay. Path, NewContent, Callback Function. Dapat string yung 2nd argument palagi
-//Example_1: After ma-access yung files, pinalitan yung content
+// // Example_1: After ma-access yung files, pinalitan yung content
 // fs.writeFile('./documents/3d.txt', 'Hello Ella', function () {
 //     console.log('Rewritten Already');
 // });
 
-// //Example_2: Mag create ng new file, and gumawa ng content
+// // Example_2: Mag create ng new file, and gumawa ng content
 // fs.writeFile('./documents/new.txt', 'Hello World', () => {
 //     console.log('Rewritten Already');
 // });
