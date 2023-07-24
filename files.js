@@ -13,7 +13,6 @@ const fs = require('fs');
 
 
 
-
 //WRITE FILES - 3 argument yung kailangang ilagay. Path, NewContent, Callback Function. Dapat string yung 2nd argument palagi
 // // Example_1: After ma-access yung files, pinalitan yung content
 // fs.writeFile('./documents/3d.txt', 'Hello Ella', function () {
