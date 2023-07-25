@@ -17,8 +17,35 @@ const server = http.createServer((req, res)=>{
     // res.end();
 
     //Response_Example_3: Sending an HTML document as Response
+    // res.setHeader('Content-type', 'text/html');
+    // fs.readFile('./views/homepage.html', (err, data) => {
+    //     if(err){
+    //         console.log(err);
+    //         res.end();
+    //     }else{
+    //         res.write(data);
+    //         res.end();
+    //     }
+    // });
+
+    //Response_Example_4: Sending an HTML document as Response but can now Route 
     res.setHeader('Content-type', 'text/html');
-    fs.readFile('./views/homepage.html', (err, data) => {
+
+    let path = './views/';
+
+    switch(req.url){
+        case '/':
+            path += 'homepage.html';
+            break;
+        case '/about':
+            path += 'about.html';
+            break;
+        default:
+            path += '404.html';
+            break;
+    }
+
+    fs.readFile(path, (err, data) => {
         if(err){
             console.log(err);
             res.end();
