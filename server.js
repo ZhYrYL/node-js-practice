@@ -1,8 +1,20 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((req, res)=>{
-    console.log(req.url, req.method);
+    // console.log(req.url, req.method);
+
+    //lodash
+    let num = _.random(1, 20);
+    console.log(num);
+
+    const greet = _.once(() => {
+        console.log(`hello`);
+    });
+
+    greet();
+
 
 
     // //Response_Example_1: Sending Plain text as Response
