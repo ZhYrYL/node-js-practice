@@ -26,8 +26,7 @@
             flex: 1;
             border-bottom: 1px solid;
             display: flex;
-            justify-content: center;
-            align-items: center;
+        
         }
         .container-2{
             flex: 5;
@@ -35,6 +34,17 @@
             justify-content: center;
             align-items: center;
         }
+        .header, .navbar{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar{
+            gap: 20px;
+            border-left: 1px solid;
+        }
+      
     </style>
     <link rel="icon" type="image/png" sizes="32x32" href="./images/posadas.jpg">
     <meta charset="UTF-8">
@@ -46,7 +56,13 @@
 
     <div class="flex-container">
         <div class="container-1">
-            <h2>Full Stack Web Developer</h2>
+            <nav class="header">
+                <h2>Full Stack Web Developer</h2>
+            </nav>
+            <nav class="navbar">
+                <a href="/">Homepage</a>
+                <a href="/about">About</a>
+            </nav>
         </div>
         <div class="container-2">
             <h3>Zhyryll Ryj C. Posadas</h3>
