@@ -37,13 +37,13 @@ app.set('view engine', 'ejs'); //Registering EJS
 
 
 app.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', { title: 'Home'} );
 });
 
 app.get('/about', (req, res) => {
-    res.render('about');
+    res.render('about', { title: 'About'});
 });
 
 app.use((req, res)=>{
-    res.status(404).render('404');
+    res.status(404).render('404', { title: '404'});
 });
