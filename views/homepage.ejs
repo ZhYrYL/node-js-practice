@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            border-style: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 95vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .flex-container{
+            height: 40%;
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 5px 5px black;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+        }
+        .container-1{
+            flex: 1;
+            border-bottom: 1px solid;
+            display: flex;
+        
+        }
+        .container-2{
+            flex: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header, .navbar{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar{
+            gap: 20px;
+            border-left: 1px solid;
+        }
+      
+    </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/posadas.jpg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer</title>
+</head>
+<body>
+
+    <div class="flex-container">
+        <div class="container-1">
+            <nav class="header">
+                <h2>Full Stack Web Developer</h2>
+            </nav>
+            <nav class="navbar">
+                <a href="/">Homepage</a>
+                <a href="/about">About</a>
+            </nav>
+        </div>
+        <div class="container-2">
+            <h3>Zhyryll Ryj C. Posadas</h3>
+        </div>
+    </div>
+    
+</body>
+</html>
