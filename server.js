@@ -44,7 +44,7 @@ const server = http.createServer((req, res)=>{
     //Response_Example_4: Sending an HTML document as Response but can now Route 
     res.setHeader('Content-type', 'text/html');
 
-    let path = './views/';
+    let path = './html/';
 
     switch(req.url){
         case '/':
