@@ -37,7 +37,12 @@ app.set('view engine', 'ejs'); //Registering EJS
 
 
 app.get('/', (req, res) => {
-    res.render('homepage', { title: 'Home'} );
+    const achievements = [
+        {title: 'Elementary School', des: 'With Honors'},
+        {title: 'High School', des: 'With High Honors'},
+        {title: 'College', des: 'With Highest Honors'}
+    ];
+    res.render('homepage', { title: 'Home', achievements} );
 });
 
 app.get('/about', (req, res) => {

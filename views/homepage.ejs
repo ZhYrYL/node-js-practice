@@ -31,8 +31,9 @@
         .container-2{
             flex: 5;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            /* justify-content: center;
+            align-items: center; */
+            flex-direction: column;
         }
         .header, .navbar{
             flex: 1;
@@ -44,6 +45,21 @@
             gap: 20px;
             border-left: 1px solid;
         }
+        .con-2-header{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid;
+        }
+        .con-2-body{
+            flex: 4;
+            padding: 10px;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+
       
     </style>
     <link rel="icon" type="image/png" sizes="32x32" href="./images/posadas.jpg">
@@ -54,12 +70,10 @@
 </head>
 <body>
 
-    <% let name = 'Ading' %>
-
     <div class="flex-container">
         <div class="container-1">
             <nav class="header">
-                <h2>Full Stack Web Developer | <%= name %></h2>
+                <h2>Full Stack Web Developer</h2>
             </nav>
             <nav class="navbar">
                 <a href="/">Homepage</a>
@@ -67,7 +81,20 @@
             </nav>
         </div>
         <div class="container-2">
-            <h3>Zhyryll Ryj C. Posadas</h3>
+            <div class="con-2-header">
+                <h3>Zhyryll Ryj C. Posadas</h3>
+            </div>
+            <div class="con-2-body">
+                <% if(achievements.length > 0){ %>
+                    <% achievements.forEach(achievement => { %>
+                        <h3 class="title"><%= achievement.title %></h3>
+                        <p class="des"><%= achievement.des %></p>
+                    <% }) %>
+                <% } else { %>
+                        <p>This guy dont have any sort of achievement :(</p>
+                <% } %>
+            </div>
+            
         </div>
     </div>
     
