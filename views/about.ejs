@@ -1,72 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-        *{
-            border-style: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            height: 95vh;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-        }
-        .flex-container{
-            height: 40%;
-            width: 40%;
-            border-radius: 10px;
-            box-shadow: 5px 5px black;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid black;
-        }
-        .container-1{
-            flex: 1;
-            border-bottom: 1px solid;
-            display: flex;
-           
-        }
-        .container-2{
-            flex: 5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .header, .navbar{
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .navbar{
-            gap: 20px;
-            border-left: 1px solid;
-        }
-    </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | <%= title %></title>
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
 
-    <div class="flex-container">
-        <div class="container-1">
-            <nav class="header">
-                <h2>About Page</h2>
-            </nav>
-            <nav class="navbar">
-                <a href="/">Homepage</a>
-                <a href="/about">About</a>
-            </nav>
-            
-        </div>
-        <div class="container-2">
-            <h3>The creator of this webpage is Zhyryll Ryj C. Posadas</h3>
+    <%- include('./partials/nav.ejs') %>
+    <div class="body">
+        <div class="flex-container">
+            <div class="container-1">
+                <nav class="con-header">
+                    <h2>About Page</h2>
+                </nav> 
+            </div>
+            <div class="container-2">
+                <h3>The creator of this webpage is Zhyryll Ryj C. Posadas</h3>
+            </div>
         </div>
     </div>
-    
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

@@ -1,102 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-        *{
-            border-style: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            height: 95vh;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-        }
-        .flex-container{
-            height: 40%;
-            width: 40%;
-            border-radius: 10px;
-            box-shadow: 5px 5px black;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid black;
-        }
-        .container-1{
-            flex: 1;
-            border-bottom: 1px solid;
-            display: flex;
-        
-        }
-        .container-2{
-            flex: 5;
-            display: flex;
-            /* justify-content: center;
-            align-items: center; */
-            flex-direction: column;
-        }
-        .header, .navbar{
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .navbar{
-            gap: 20px;
-            border-left: 1px solid;
-        }
-        .con-2-header{
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid;
-        }
-        .con-2-body{
-            flex: 4;
-            padding: 10px;
-            /* display: flex;
-            justify-content: center;
-            align-items: center; */
-        }
-
-      
-    </style>
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/posadas.jpg">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer | <%= title %></title>
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
-
-    <div class="flex-container">
-        <div class="container-1">
-            <nav class="header">
-                <h2>Full Stack Web Developer</h2>
-            </nav>
-            <nav class="navbar">
-                <a href="/">Homepage</a>
-                <a href="/about">About</a>
-            </nav>
-        </div>
-        <div class="container-2">
-            <div class="con-2-header">
-                <h3>Zhyryll Ryj C. Posadas</h3>
+    
+    <%- include('./partials/nav.ejs') %>
+    <div class="body">
+        <div class="flex-container">
+            <div class="container-1">
+                <nav class="con-header">
+                    <h2>Full Stack Web Developer</h2>
+                </nav>
             </div>
-            <div class="con-2-body">
-                <% if(achievements.length > 0){ %>
-                    <% achievements.forEach(achievement => { %>
-                        <h3 class="title"><%= achievement.title %></h3>
-                        <p class="des"><%= achievement.des %></p>
-                    <% }) %>
-                <% } else { %>
-                        <p>This guy dont have any sort of achievement :(</p>
-                <% } %>
+            <div class="container-2">
+                <div class="con-2-header">
+                    <h3>Zhyryll Ryj C. Posadas</h3>
+                </div>
+                <div class="con-2-body">
+                    <% if(achievements.length > 0) { %>
+                        <% achievements.forEach(achievement => { %>
+                            <h3><%= achievement.title %></h3>
+                            <p><%= achievement.des %></p>
+                        <% }) %>
+                    <% }else { %>
+                            <h2>This guys just dont have it :(</h2>
+                    <% } %> 
+                </div>
+                
             </div>
-            
         </div>
     </div>
     
+     <%- include('./partials/footer.ejs') %>
 </body>
 </html>
