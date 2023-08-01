@@ -35,6 +35,13 @@ app.listen(3000);
 //Response_3: Sending ejs file as response
 app.set('view engine', 'ejs'); //Registering EJS
 
+app.use((req, res, next)=>{
+    console.log('Request Made:');
+    console.log('Host: ', req.hostname);
+    console.log('Path: ', req.path);
+    console.log('Method: ', req.method, '\n');
+    next();
+});
 
 app.get('/', (req, res) => {
     const achievements = [
