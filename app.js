@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -35,13 +36,17 @@ app.listen(3000);
 //Response_3: Sending ejs file as response
 app.set('view engine', 'ejs'); //Registering EJS
 
-app.use((req, res, next)=>{
-    console.log('Request Made:');
-    console.log('Host: ', req.hostname);
-    console.log('Path: ', req.path);
-    console.log('Method: ', req.method, '\n');
-    next();
-});
+// app.use((req, res, next)=>{
+//     console.log('Request Made:');
+//     console.log('Host: ', req.hostname);
+//     console.log('Path: ', req.path);
+//     console.log('Method: ', req.method, '\n');
+//     next();
+// });
+
+app.use(express.static('public'));
+app.use(morgan('dev'));
+
 
 app.get('/', (req, res) => {
     const achievements = [
