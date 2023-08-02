@@ -3,6 +3,8 @@ const morgan = require('morgan');
 
 const app = express();
 
+const dbURI = 'mongodb+srv://zhyposadas:zhyzhyzhy123@node-1.yfv9gqg.mongodb.net/';
+
 app.listen(3000);
 
 
