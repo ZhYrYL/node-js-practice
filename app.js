@@ -1,11 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const app = express();
 
 const dbURI = 'mongodb+srv://zhyposadas:zhyzhyzhy123@node-1.yfv9gqg.mongodb.net/';
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((result) =>  app.listen(3000))
+    .catch((err)=>{console.log(err)});
 
-app.listen(3000);
+
+
 
 
 //Response_1: Sending HTML tags as response using Express
