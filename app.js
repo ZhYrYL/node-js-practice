@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Blog = require('./models/blog');
 
 const app = express();
 
@@ -10,7 +11,21 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err)=>{console.log(err)});
 
 
+app.get('/add-blog', (req, res) => {
+    const blog = new Blog({
+        title: 'Zhyryll New Blog',
+        snippet: 'About my New Blog',
+        body: 'More about my new Blog'
+    });
 
+    blog.save()
+        .then((result)=>{
+            res.send(result);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })  
+});
 
 
 //Response_1: Sending HTML tags as response using Express

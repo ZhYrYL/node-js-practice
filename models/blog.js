@@ -16,6 +16,6 @@ const blogSchema = new Schema({
     }
 }, { timestamps: true});
 
-const Blog = mongoose.model('Blog', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema); //Yung string na "Blog" ganyan pangalan, kasi dapat pareho siya sa name ng database. And kailangan naka wrap talaga sa model yung schema para malagyan ng laman yung kincreate na columns
 
 module.exports = Blog;
