@@ -5,51 +5,52 @@ const Blog = require('./models/blog');
 
 const app = express();
 
+//connect to the database
 const dbURI = 'mongodb+srv://zhyposadas:zhyzhyzhy123@node-1.yfv9gqg.mongodb.net/';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) =>  app.listen(3000))
     .catch((err)=>{console.log(err)});
 
-//Lagyan ng laman yung columns, save, then record sa database
-app.get('/add-blog', (req, res) => {
-    const blog = new Blog({
-        title: 'Zhyiee New Blog',
-        snippet: 'About my New Blog',
-        body: 'More about my new Blog'
-    });
+// //Lagyan ng laman yung columns, save, then record sa database
+// app.get('/add-blog', (req, res) => {
+//     const blog = new Blog({
+//         title: 'Zhyiee New Blog',
+//         snippet: 'About my New Blog',
+//         body: 'More about my new Blog'
+//     });
 
-    blog.save()
-        .then((result)=>{
-            res.send(result);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })  
-});
-
-
-//Itong next get handler will find all documents na recorded sa database
-app.get('/all-blog', (req, res) => {
-    Blog.find()
-        .then((result)=>{
-            res.send(result);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-});
+//     blog.save()
+//         .then((result)=>{
+//             res.send(result);
+//         })
+//         .catch((err)=>{
+//             console.log(err);
+//         })  
+// });
 
 
-//Itong next get handler, hahanapin niya yung document by id
-app.get('/single-blog', (req, res) => {
-    Blog.findById('64ce39f85ce4e35c4cecf90a') //Yung string na nakalagay is id na unique sa kada document na nakasave sa database
-        .then((result)=>{
-            res.send(result);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })  
-});
+// //Itong next get handler will find all documents na recorded sa database
+// app.get('/all-blog', (req, res) => {
+//     Blog.find()
+//         .then((result)=>{
+//             res.send(result);
+//         })
+//         .catch((err)=>{
+//             console.log(err);
+//         })
+// });
+
+
+// //Itong next get handler, hahanapin niya yung document by id
+// app.get('/single-blog', (req, res) => {
+//     Blog.findById('64ce39f85ce4e35c4cecf90a') //Yung string na nakalagay is id na unique sa kada document na nakasave sa database
+//         .then((result)=>{
+//             res.send(result);
+//         })
+//         .catch((err)=>{
+//             console.log(err);
+//         })  
+// });
 
 //Response_1: Sending HTML tags as response using Express
 // app.get('/', (req, res) => {
@@ -94,12 +95,23 @@ app.use(morgan('dev'));
 
 
 app.get('/', (req, res) => {
-    const achievements = [
-        {title: 'Elementary School', des: 'With Honors'},
-        {title: 'High School', des: 'With High Honors'},
-        {title: 'College', des: 'With Highest Honors'}
-    ];
-    res.render('homepage', { title: 'Home', achievements} );
+    // const achievements = [
+    //     {title: 'Elementary School', des: 'With Honors'},
+    //     {title: 'High School', des: 'With High Honors'},
+    //     {title: 'College', des: 'With Highest Honors'}
+    // ];
+    // res.render('homepage', { title: 'Home', achievements} );
+    res.redirect('/blogs');
+});
+
+app.get('/blogs', (req, res) => {
+    Blog.find().sort({ createdAt: -1 }) //yung sort ginamit para masort siya ascending or descending. But dito ang ginawa -1, kaya descending yung pagkaka output sa UI, or yung new documents yung mauuna sa taas palagi
+        .then((result)=>{
+            res.render('homepage', { title: 'All Blogs', blogs: result}); //sa blogs na property nakalagay lahat ng documents na meron sa collection
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
 });
 
 app.get('/about', (req, res) => {
