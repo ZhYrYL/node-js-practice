@@ -148,4 +148,5 @@ form .submit-btn:hover{
 form textarea{
     width: 100%;
     height: 20%;
+    text-indent: 5px;
 }

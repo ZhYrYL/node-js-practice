@@ -91,6 +91,7 @@ app.set('view engine', 'ejs'); //Registering EJS
 // });
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 
@@ -113,6 +114,25 @@ app.get('/blogs', (req, res) => {
             console.log(err);
         })
 });
+
+
+//Sa console lalabas yung iniput ni user sa form. To use the req.body para ma fetch yung laman ng ininput ni user, kailangang mag-create ng panibagong middle which is use method and gamitin yung urlencoded() method na meron si express
+// app.post('/blogs', (req, res) => {
+//     console.log(req.body); 
+// })
+
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body); 
+
+    blog.save()
+        .then((result)=>{
+            res.redirect('/blogs');
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+})
+
 
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About'});

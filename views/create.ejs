@@ -5,21 +5,20 @@
     <%- include('./partials/nav.ejs') %>
 
     <div class="body">
-        <form>
+        <form action="/blogs" method="POST">
             <label for="blog-title">Blog title:</label><br>
-            <input type="text" id="blog-title"><br><br>
+            <input type="text" id="blog-title" name="blog-title" required><br><br>
 
             <label for="blog-snippet">Blog snippet:</label><br>
-            <input type="text" id="blog-snippet"><br><br>
+            <input type="text" id="blog-snippet" name="blog-snippet" required><br><br>
 
-            <label>Blog body:</label><br>
-            <textarea></textarea><br><br>
+            <label for="blog-text">Blog body:</label><br>
+            <textarea id="blog-text" name="body"></textarea><br><br>
 
             <input type="submit" value="Submit" class="submit-btn">
 
         </form>
     </div>
-
 
     <%- include('./partials/footer.ejs') %>
 </body>
