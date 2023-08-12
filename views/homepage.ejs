@@ -16,17 +16,21 @@
                     <h3>Zhyryll Ryj C. Posadas</h3>
                 </div>
                 <div class="con-2-body">
-                    <% if(blogs.length > 0) { %>
-                        <% blogs.forEach(blog => { %>
-                            <!-- pwede mo ring ifetch yung iba properities or columns na meron yung documents-->
-                            <!-- <h3>ID: <%= blog._id %></h3> -->
-                            <h3><%= blog.title %></h3>
-                            <p><%= blog.snippet %></p>
-                           
-                        <% }) %>
-                    <% }else { %>
-                            <h2>This guys just dont have it :(</h2>
-                    <% } %> 
+                    <!-- <div class="blog-style"> -->
+                        <% if(blogs.length > 0) { %>
+                            <% blogs.forEach(blog => { %>
+                                <a href="/blogs/<%= blog._id %>">
+                                    <!-- pwede mo ring ifetch yung iba properities or columns na meron yung documents-->
+                                    <!-- <h3>ID: <%= blog._id %></h3> -->
+                                    <h3><%= blog.title %></h3>
+                                    <p><%= blog.snippet %></p>
+                                </a>
+                            
+                            <% }) %>
+                        <% }else { %>
+                                <h2>This guy just dont have it :(</h2>
+                        <% } %> 
+                    <!-- </div> -->
                 </div>
                 
             </div>

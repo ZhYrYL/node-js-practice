@@ -133,6 +133,18 @@ app.post('/blogs', (req, res) => {
         })
 })
 
+app.get('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+
+    // console.log(id);
+    Blog.findById(id)
+        .then((result)=>{
+            res.render('details', { blogs: result, title: 'Blogs Details'});
+        })
+        .catch((err)=>{
+            console.log(err);
+        })  
+})
 
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About'});
