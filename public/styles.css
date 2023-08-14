@@ -112,10 +112,11 @@ footer{
     border-bottom: 1px solid;
 }
 .con-2-body{
-    flex: 5;
+    height: 400px;
     padding: 5px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    overflow: hidden;
     overflow-y: scroll;
 }
 /* .con-2-body div a{
@@ -132,7 +133,7 @@ footer{
     padding-left: 5px;
     border-left: 6px solid crimson;
     margin: 5px;
-    flex: 1;
+    height: 80px;
     /* border: 1px solid; */
     text-decoration: none;
     color: #000;
@@ -204,4 +205,27 @@ form textarea{
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
+}
+.details-3{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.details-3 a{
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #C51605;
+}
+.details-3 a:hover{
+    transition: 0.3s;
+    color: #C51605;
+    background-color: #fff;
+    border: 1px solid gray;
 }
